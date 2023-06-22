@@ -47,7 +47,6 @@ def send_request(url, payload, useragent, port):
 from concurrent.futures import ThreadPoolExecutor
 
 def main(url, run, thread):
-	print("Ok !")
     useragents = get_useragents('ua.txt')
     data = read_file('data.xml')
     threads_finished = 0
@@ -64,9 +63,9 @@ def main(url, run, thread):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-u', required=True)
-    parser.add_argument('-r', required=True)
-    parser.add_argument('-t', required=True)
+    parser.add_argument('--url', required=True)
+    parser.add_argument('--run', required=True)
+    parser.add_argument('--thread', required=True)
 
     args = parser.parse_args()
     try:
