@@ -17,9 +17,9 @@ def send_request(url, payload, useragent, port):
     try:
         with requests.Session() as session:
             if port == 443:
-                response = session.post(url, data=payload.encode('utf-8'), headers=headers, timeout=5, verify=False)
+                response = session.post(url, data=payload.encode('utf-8'), headers=headers, timeout=5)
             else:
-                response = session.post(f"{url}:{port}", data=payload.encode('utf-8'), headers=headers, timeout=5, verify=False)
+                response = session.post(f"{url}:{port}", data=payload.encode('utf-8'), headers=headers, timeout=5)
     except Exception as e:
         logger.error("Error sending request: %s", e)
 from concurrent.futures import ThreadPoolExecutor
