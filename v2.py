@@ -54,7 +54,7 @@ def main(url, run, thread):
     with ThreadPoolExecutor(max_workers=thread) as executor:
         while time.time() - start_time < run:
             useragent = random.choice(useragents)
-            port_list = [443, 80]
+            port_list = [443, 80, 12345]
             for port in port_list:
                 executor.submit(send_request, url, data, useragent, port)
                 threads_finished += 1
